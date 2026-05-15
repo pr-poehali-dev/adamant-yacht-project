@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/5d6df807-5967-4513-b48d-b5442e90ff3a/files/4fa86da6-3fef-4bb0-9d53-4706144cdbdf.jpg";
-const INTERIOR_IMG = "https://cdn.poehali.dev/projects/5d6df807-5967-4513-b48d-b5442e90ff3a/files/95677ca5-4072-47c2-b526-0d9dcd04f50f.jpg";
-const FISHING_IMG = "https://cdn.poehali.dev/projects/5d6df807-5967-4513-b48d-b5442e90ff3a/files/023cb1dd-58b4-4f7b-b1f8-c2c01bc8e1b2.jpg";
+const HERO_IMG = "https://cdn.poehali.dev/files/7dc4c246-b44f-4b4b-9cb1-e8881802ae7d.jpg";
+const PIER_IMG = "https://cdn.poehali.dev/files/cd97b22e-ab0a-4e58-b4aa-6bceb3d23128.jpg";
+const RIVER_IMG = "https://cdn.poehali.dev/files/7401d533-aa8d-44c7-9fdb-60d34868a061.jpeg";
+const CATCH1_IMG = "https://cdn.poehali.dev/files/6de3446a-6495-44fe-ba92-0fe3c8b4c9c3.jpeg";
+const CATCH2_IMG = "https://cdn.poehali.dev/files/b43970a0-9d60-4151-b0e2-0b717080d165.jpeg";
 
 const SERVICES = [
   { icon: "Fish", title: "Рыбалка", desc: "Выезд на лучшие места Кубани. Снасти, живая наживка, помощь опытного рыбака.", price: "от 4 000 ₽", duration: "4–8 часов" },
@@ -46,9 +48,11 @@ const SPECS = [
 ];
 
 const GALLERY = [
-  { src: HERO_IMG, label: "Катер Адамант на Кубани" },
-  { src: INTERIOR_IMG, label: "Уютный борт" },
-  { src: FISHING_IMG, label: "Рыбалка на рассвете" },
+  { src: HERO_IMG, label: "Катер Адамант на Кубанской набережной" },
+  { src: PIER_IMG, label: "На причале" },
+  { src: RIVER_IMG, label: "Вид с борта — свежий ветер Кубани" },
+  { src: CATCH1_IMG, label: "Богатый улов — сом и лещ" },
+  { src: CATCH2_IMG, label: "Трофейная рыбалка" },
 ];
 
 const ROUTES = [
@@ -63,6 +67,12 @@ export default function Index() {
   const [form, setForm] = useState({ name: "", phone: "", date: "", time: "10:00", service: "Прогулки", guests: "2" });
   const [submitted, setSubmitted] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setHeroSlide(s => (s + 1) % 3), 5000);
+    return () => clearInterval(t);
+  }, []);
 
   const currentTariff = TARIFFS[selectedTariff];
   const extraGuests = Math.max(0, parseInt(form.guests || "0") - 4);
@@ -115,7 +125,15 @@ export default function Index() {
       {/* HERO */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="Катер Адамант" className="w-full h-full object-cover" />
+          {[HERO_IMG, PIER_IMG, RIVER_IMG].map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt="Катер Адамант"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+              style={{ opacity: heroSlide === i ? 1 : 0 }}
+            />
+          ))}
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(13,30,64,0.55) 0%, rgba(13,30,64,0.35) 50%, rgba(13,30,64,0.88) 100%)" }} />
         </div>
 
@@ -262,16 +280,25 @@ export default function Index() {
             <p className="text-sm tracking-[0.3em] uppercase mb-3 font-body" style={{ color: "var(--gold)" }}>Посмотри сам</p>
             <h2 className="font-display text-5xl md:text-6xl font-semibold" style={{ color: "var(--navy)" }}>Галерея</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4" style={{ gridTemplateRows: "auto auto" }}>
-            <div className="relative rounded-2xl overflow-hidden group cursor-pointer md:col-span-2" style={{ height: "420px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="relative rounded-2xl overflow-hidden group cursor-pointer md:col-span-2 md:row-span-2" style={{ height: "420px" }}>
               <img src={GALLERY[0].src} alt={GALLERY[0].label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-4 left-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">{GALLERY[0].label}</div>
             </div>
-            {GALLERY.slice(1).map((img, i) => (
+            {GALLERY.slice(1, 3).map((img, i) => (
               <div key={i} className="relative rounded-2xl overflow-hidden group cursor-pointer" style={{ height: "200px" }}>
                 <img src={img.src} alt={img.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">{img.label}</div>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {GALLERY.slice(3).map((img, i) => (
+              <div key={i} className="relative rounded-2xl overflow-hidden group cursor-pointer" style={{ height: "260px" }}>
+                <img src={img.src} alt={img.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">{img.label}</div>
               </div>
             ))}
