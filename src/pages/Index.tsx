@@ -66,6 +66,8 @@ export default function Index() {
   const [selectedTariff, setSelectedTariff] = useState(1);
   const [form, setForm] = useState({ name: "", phone: "", date: "", time: "10:00", service: "Прогулки", guests: "2" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
 
@@ -78,9 +80,32 @@ export default function Index() {
   const extraGuests = Math.max(0, parseInt(form.guests || "0") - 4);
   const price = currentTariff.price + extraGuests * 300;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setSendError("");
+    try {
+      const res = await fetch("https://functions.poehali.dev/47fa07b1-dad6-4714-b5b9-ec9c89f47712", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          service: form.service,
+          date: form.date,
+          time: form.time,
+          guests: form.guests,
+          tariff: currentTariff.name,
+          price,
+        }),
+      });
+      if (!res.ok) throw new Error("Ошибка отправки");
+      setSubmitted(true);
+    } catch {
+      setSendError("Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const scrollTo = (id: string) => {
@@ -474,9 +499,12 @@ export default function Index() {
                       ))}
                     </select>
                   </div>
-                  <button type="submit" className="w-full py-4 rounded-xl font-semibold text-base transition-all duration-200 hover:scale-[1.02] hover:opacity-95 active:scale-95 mt-2"
+                  {sendError && (
+                    <p className="text-sm text-red-400 text-center">{sendError}</p>
+                  )}
+                  <button type="submit" disabled={sending} className="w-full py-4 rounded-xl font-semibold text-base transition-all duration-200 hover:scale-[1.02] hover:opacity-95 active:scale-95 mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{ background: "var(--gold)", color: "#0d1e40" }}>
-                    Отправить заявку
+                    {sending ? "Отправляем..." : "Отправить заявку"}
                   </button>
                 </form>
               )}
