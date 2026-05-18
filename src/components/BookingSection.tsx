@@ -199,13 +199,13 @@ export default function BookingSection({
             <div className="rounded-2xl p-6" style={{ border: "2px solid rgba(201,162,39,0.25)", background: "white" }}>
               <h4 className="font-semibold mb-4" style={{ color: "var(--navy)" }}>Связаться напрямую</h4>
               <div className="space-y-3">
-                <a href="tel:+79001234567" className="flex items-center gap-3 text-sm hover:opacity-75 transition-opacity">
+                <a href="tel:+79282108468" className="flex items-center gap-3 text-sm hover:opacity-75 transition-opacity">
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#dae8ff" }}>
                     <Icon name="Phone" size={15} style={{ color: "var(--navy)" }} />
                   </div>
-                  <span style={{ color: "var(--navy)" }}>+7 (900) 123-45-67</span>
+                  <span style={{ color: "var(--navy)" }}>+7 (928) 210-84-68</span>
                 </a>
-                <a href="https://wa.me/79001234567" className="flex items-center gap-3 text-sm hover:opacity-75 transition-opacity">
+                <a href="https://wa.me/79282108468" className="flex items-center gap-3 text-sm hover:opacity-75 transition-opacity">
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#d1fae5" }}>
                     <Icon name="MessageCircle" size={15} style={{ color: "#16a34a" }} />
                   </div>
