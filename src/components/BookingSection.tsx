@@ -211,12 +211,12 @@ export default function BookingSection({
                   </div>
                   <span style={{ color: "#6b7280" }}>WhatsApp</span>
                 </a>
-                <div className="flex items-center gap-3 text-sm">
+                <a href="https://yandex.ru/maps/?text=Краснодар%2C+4-й+Воронежский+проезд+1%2F1%2C+Клуб+Причал" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:opacity-75 transition-opacity">
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#fef3c7" }}>
                     <Icon name="MapPin" size={15} style={{ color: "var(--gold)" }} />
                   </div>
                   <span style={{ color: "#6b7280" }}>Краснодар, 4-й Воронежский проезд 1/1, Клуб "Причал"</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
