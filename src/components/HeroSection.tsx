@@ -47,7 +47,7 @@ export default function HeroSection({ heroSlide, scrollTo }: HeroSectionProps) {
           <span className="italic" style={{ color: "var(--gold-light)" }}>Адамант</span>
         </h1>
         <p className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto animate-fade-in animate-delay-300" style={{ color: "rgba(255,255,255,0.75)", animationFillMode: "both" }}>
-          Аренда катера для рыбалки, прогулок, фотосессий и пикников. До 8 человек, лучшие маршруты Кубани.
+          Аренда катера для рыбалки, прогулок, фотосессий и пикников. До 6 человек, лучшие маршруты Кубани.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400" style={{ animationFillMode: "both" }}>
           <button
