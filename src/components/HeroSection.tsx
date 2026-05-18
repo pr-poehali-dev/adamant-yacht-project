@@ -3,12 +3,12 @@ const PIER_IMG = "https://cdn.poehali.dev/files/cd97b22e-ab0a-4e58-b4aa-6bceb3d2
 const RIVER_IMG = "https://cdn.poehali.dev/files/7401d533-aa8d-44c7-9fdb-60d34868a061.jpeg";
 
 const SPECS = [
-  { label: "Длина", value: "7,5 м" },
+  { label: "Длина", value: "5,0 м" },
   { label: "Ширина", value: "2,4 м" },
-  { label: "Вместимость", value: "8 чел." },
-  { label: "Двигатель", value: "115 л.с." },
-  { label: "Скорость", value: "до 45 км/ч" },
-  { label: "Осадка", value: "0,45 м" },
+  { label: "Вместимость", value: "6 чел." },
+  { label: "Двигатель", value: "40 л.с." },
+  { label: "Скорость", value: "до 35 км/ч" },
+  { label: "Осадка", value: "0,35 м" },
 ];
 
 interface HeroSectionProps {
