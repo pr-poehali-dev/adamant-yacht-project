@@ -215,7 +215,7 @@ export default function BookingSection({
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "#fef3c7" }}>
                     <Icon name="MapPin" size={15} style={{ color: "var(--gold)" }} />
                   </div>
-                  <span style={{ color: "#6b7280" }}>г. Краснодар, причал Северный</span>
+                  <span style={{ color: "#6b7280" }}>Краснодар, 4-й Воронежский проезд 1/1, Клуб "Причал"</span>
                 </div>
               </div>
             </div>
