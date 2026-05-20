@@ -1,7 +1,6 @@
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/files/7dc4c246-b44f-4b4b-9cb1-e8881802ae7d.jpg";
-const PIER_IMG = "https://cdn.poehali.dev/files/cd97b22e-ab0a-4e58-b4aa-6bceb3d23128.jpg";
 const RIVER_IMG = "https://cdn.poehali.dev/files/7401d533-aa8d-44c7-9fdb-60d34868a061.jpeg";
 const CATCH1_IMG = "https://cdn.poehali.dev/files/6de3446a-6495-44fe-ba92-0fe3c8b4c9c3.jpeg";
 const BOAT3_IMG = "https://cdn.poehali.dev/files/4009da30-57c8-4243-9378-7dfbcfad106b.jpg";
@@ -52,7 +51,6 @@ const SPECS = [
 
 const GALLERY = [
   { src: HERO_IMG, label: "Катер Адамант на Кубанской набережной" },
-  { src: PIER_IMG, label: "На причале" },
   { src: BOAT5_IMG, label: "Адамант у причала — вид на корму" },
   { src: RIVER_IMG, label: "Вид с борта — свежий ветер Кубани" },
   { src: BOAT3_IMG, label: "Катер Адамант по реке Кубань" },
