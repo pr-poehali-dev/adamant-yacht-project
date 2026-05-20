@@ -7,6 +7,7 @@ const CATCH1_IMG = "https://cdn.poehali.dev/files/6de3446a-6495-44fe-ba92-0fe3c8
 const BOAT3_IMG = "https://cdn.poehali.dev/files/4009da30-57c8-4243-9378-7dfbcfad106b.jpg";
 const BOAT4_IMG = "https://cdn.poehali.dev/files/52095060-abe0-4f99-b555-9588d39d0d4f.jpg";
 const CATCH2_IMG = "https://cdn.poehali.dev/files/13f0974d-fad8-4f7b-80e9-9c65d222e44c.jpeg";
+const BOAT5_IMG = "https://cdn.poehali.dev/files/e6c2644d-4811-4021-973d-773bc6a96ed5.jpg";
 
 
 export const SERVICES = [
@@ -52,6 +53,7 @@ const SPECS = [
 const GALLERY = [
   { src: HERO_IMG, label: "Катер Адамант на Кубанской набережной" },
   { src: PIER_IMG, label: "На причале" },
+  { src: BOAT5_IMG, label: "Адамант у причала — вид на корму" },
   { src: RIVER_IMG, label: "Вид с борта — свежий ветер Кубани" },
   { src: BOAT3_IMG, label: "Катер Адамант по реке Кубань" },
   { src: BOAT4_IMG, label: "В путь по реке Кубань" },
