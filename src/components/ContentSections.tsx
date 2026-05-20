@@ -4,7 +4,7 @@ const HERO_IMG = "https://cdn.poehali.dev/files/7dc4c246-b44f-4b4b-9cb1-e8881802
 const PIER_IMG = "https://cdn.poehali.dev/files/cd97b22e-ab0a-4e58-b4aa-6bceb3d23128.jpg";
 const RIVER_IMG = "https://cdn.poehali.dev/files/7401d533-aa8d-44c7-9fdb-60d34868a061.jpeg";
 const CATCH1_IMG = "https://cdn.poehali.dev/files/6de3446a-6495-44fe-ba92-0fe3c8b4c9c3.jpeg";
-const CATCH2_IMG = "https://cdn.poehali.dev/files/b43970a0-9d60-4151-b0e2-0b717080d165.jpeg";
+
 
 export const SERVICES = [
   { icon: "Fish", title: "Рыбалка", desc: "Выезд на лучшие места реки Кубани. Снасти, живая наживка, помощь опытного рыбака.", price: "от 4 000 ₽", duration: "от 2 часов" },
@@ -51,7 +51,6 @@ const GALLERY = [
   { src: PIER_IMG, label: "На причале" },
   { src: RIVER_IMG, label: "Вид с борта — свежий ветер Кубани" },
   { src: CATCH1_IMG, label: "Богатый улов — сом и лещ" },
-  { src: CATCH2_IMG, label: "Трофейная рыбалка" },
 ];
 
 const ROUTES = [
