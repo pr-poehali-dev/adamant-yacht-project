@@ -4,7 +4,6 @@ const HERO_IMG = "https://cdn.poehali.dev/files/7dc4c246-b44f-4b4b-9cb1-e8881802
 const PIER_IMG = "https://cdn.poehali.dev/files/cd97b22e-ab0a-4e58-b4aa-6bceb3d23128.jpg";
 const RIVER_IMG = "https://cdn.poehali.dev/files/7401d533-aa8d-44c7-9fdb-60d34868a061.jpeg";
 const CATCH1_IMG = "https://cdn.poehali.dev/files/6de3446a-6495-44fe-ba92-0fe3c8b4c9c3.jpeg";
-const BOAT2_IMG = "https://cdn.poehali.dev/files/a4f1c07c-5e2e-405f-8de2-8e3923956afe.jpg";
 
 
 export const SERVICES = [
@@ -51,7 +50,6 @@ const GALLERY = [
   { src: HERO_IMG, label: "Катер Адамант на Кубанской набережной" },
   { src: PIER_IMG, label: "На причале" },
   { src: RIVER_IMG, label: "Вид с борта — свежий ветер Кубани" },
-  { src: BOAT2_IMG, label: "Катер Адамант на реке Кубань" },
   { src: CATCH1_IMG, label: "Богатый улов — сом и лещ" },
 ];
 
